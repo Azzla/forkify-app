@@ -9,10 +9,10 @@ export const highlightSelected = id => {
 		el.classList.remove('results__link--active');
 	})
 	
-	document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+	document.querySelector(`a[href*="${id}"]`).classList.add('results__link--active');
 };
 
-const limitTitle = (title, limit = 17) => {
+export const limitTitle = (title, limit = 17) => {
 	const newTitle = [];
 	if (title.length > limit) {
 		title.split(' ').reduce((acc, cur) => {
