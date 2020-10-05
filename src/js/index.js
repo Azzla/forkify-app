@@ -108,9 +108,6 @@ const controlList = () => {
 	});
 };
 
-//TESTING ------------
-state.likes = new Likes();
-
 /**---- LIKES CONTROLLER ----**/
 const controlLikes = () => {
 	if (!state.likes) state.likes = new Likes();
@@ -146,6 +143,16 @@ const controlLikes = () => {
 	}
 	likesView.toggleLikeMenu(state.likes.getNumLikes());
 };
+
+//Restore liked recipes on load
+window.addEventListener('load', () => {
+	state.likes = new Likes();
+	state.likes.retrieveData();
+	
+	likesView.toggleLikeMenu(state.likes.getNumLikes());
+	
+	state.likes.likes.forEach(like => likesView.renderLike(like));
+});
 
 // Handle delete and update list item events
 elements.shopping.addEventListener('click', e => {
