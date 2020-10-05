@@ -24,6 +24,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "axios": "^0.20.0"
+    "axios": "^0.20.0",
+    "fractional": "^1.0.0"
   }
 }
